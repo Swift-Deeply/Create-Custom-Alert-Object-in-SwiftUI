@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AAF383925F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF383825F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift */; };
+		3AAF383B25F52E1E0079789D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF383A25F52E1E0079789D /* MainView.swift */; };
+		3AAF383D25F52E1F0079789D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF383C25F52E1F0079789D /* Assets.xcassets */; };
+		3AAF384025F52E1F0079789D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF383F25F52E1F0079789D /* Preview Assets.xcassets */; };
+		3AAF384A25F52E890079789D /* TextFieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF384925F52E890079789D /* TextFieldWrapper.swift */; };
+		3AAF384D25F52E9A0079789D /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF384C25F52E9A0079789D /* TextAlert.swift */; };
+		3AAF385025F52EAF0079789D /* TextFieldAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF384F25F52EAF0079789D /* TextFieldAlertViewController.swift */; };
+		3AAF385425F52F810079789D /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF385325F52F810079789D /* View+Ext.swift */; };
+		3AAF385725F530FA0079789D /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF385625F530FA0079789D /* ListCellView.swift */; };
+		3AAF385E25F531440079789D /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF385D25F531440079789D /* TodoItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3AAF383525F52E1E0079789D /* Crate Custom Alert Object in SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crate Custom Alert Object in SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AAF383825F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crate_Custom_Alert_Object_in_SwiftUIApp.swift; sourceTree = "<group>"; };
+		3AAF383A25F52E1E0079789D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3AAF383C25F52E1F0079789D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AAF383F25F52E1F0079789D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3AAF384125F52E1F0079789D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AAF384925F52E890079789D /* TextFieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWrapper.swift; sourceTree = "<group>"; };
+		3AAF384C25F52E9A0079789D /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
+		3AAF384F25F52EAF0079789D /* TextFieldAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlertViewController.swift; sourceTree = "<group>"; };
+		3AAF385325F52F810079789D /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		3AAF385625F530FA0079789D /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
+		3AAF385D25F531440079789D /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AAF383225F52E1E0079789D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AAF382C25F52E1E0079789D = {
+			isa = PBXGroup;
+			children = (
+				3AAF383725F52E1E0079789D /* Crate Custom Alert Object in SwiftUI */,
+				3AAF383625F52E1E0079789D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AAF383625F52E1E0079789D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF383525F52E1E0079789D /* Crate Custom Alert Object in SwiftUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AAF383725F52E1E0079789D /* Crate Custom Alert Object in SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF386425F531EA0079789D /* Helpers */,
+				3AAF386025F531C70079789D /* Utilities */,
+				3AAF386325F531E10079789D /* Models */,
+				3AAF386125F531D10079789D /* Controllers */,
+				3AAF386225F531DA0079789D /* Views */,
+				3AAF386525F532110079789D /* Sources */,
+				3AAF383E25F52E1F0079789D /* Preview Content */,
+			);
+			path = "Crate Custom Alert Object in SwiftUI";
+			sourceTree = "<group>";
+		};
+		3AAF383E25F52E1F0079789D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF383F25F52E1F0079789D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3AAF386025F531C70079789D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF383825F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3AAF386125F531D10079789D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF383A25F52E1E0079789D /* MainView.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3AAF386225F531DA0079789D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF385625F530FA0079789D /* ListCellView.swift */,
+				3AAF384925F52E890079789D /* TextFieldWrapper.swift */,
+				3AAF384C25F52E9A0079789D /* TextAlert.swift */,
+				3AAF384F25F52EAF0079789D /* TextFieldAlertViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3AAF386325F531E10079789D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF385D25F531440079789D /* TodoItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3AAF386425F531EA0079789D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF385325F52F810079789D /* View+Ext.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3AAF386525F532110079789D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3AAF383C25F52E1F0079789D /* Assets.xcassets */,
+				3AAF384125F52E1F0079789D /* Info.plist */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AAF383425F52E1E0079789D /* Crate Custom Alert Object in SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AAF384425F52E1F0079789D /* Build configuration list for PBXNativeTarget "Crate Custom Alert Object in SwiftUI" */;
+			buildPhases = (
+				3AAF383125F52E1E0079789D /* Sources */,
+				3AAF383225F52E1E0079789D /* Frameworks */,
+				3AAF383325F52E1E0079789D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crate Custom Alert Object in SwiftUI";
+			productName = "Crate Custom Alert Object in SwiftUI";
+			productReference = 3AAF383525F52E1E0079789D /* Crate Custom Alert Object in SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AAF382D25F52E1E0079789D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					3AAF383425F52E1E0079789D = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 3AAF383025F52E1E0079789D /* Build configuration list for PBXProject "Crate Custom Alert Object in SwiftUI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AAF382C25F52E1E0079789D;
+			productRefGroup = 3AAF383625F52E1E0079789D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AAF383425F52E1E0079789D /* Crate Custom Alert Object in SwiftUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AAF383325F52E1E0079789D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AAF384025F52E1F0079789D /* Preview Assets.xcassets in Resources */,
+				3AAF383D25F52E1F0079789D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AAF383125F52E1E0079789D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AAF385025F52EAF0079789D /* TextFieldAlertViewController.swift in Sources */,
+				3AAF385725F530FA0079789D /* ListCellView.swift in Sources */,
+				3AAF384A25F52E890079789D /* TextFieldWrapper.swift in Sources */,
+				3AAF385425F52F810079789D /* View+Ext.swift in Sources */,
+				3AAF383B25F52E1E0079789D /* MainView.swift in Sources */,
+				3AAF383925F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift in Sources */,
+				3AAF385E25F531440079789D /* TodoItem.swift in Sources */,
+				3AAF384D25F52E9A0079789D /* TextAlert.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3AAF384225F52E1F0079789D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3AAF384325F52E1F0079789D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AAF384525F52E1F0079789D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Crate Custom Alert Object in SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 84X92G2X4P;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Crate Custom Alert Object in SwiftUI/Sources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.canbalkaya.Crate-Custom-Alert-Object-in-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3AAF384625F52E1F0079789D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Crate Custom Alert Object in SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = 84X92G2X4P;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Crate Custom Alert Object in SwiftUI/Sources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.canbalkaya.Crate-Custom-Alert-Object-in-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AAF383025F52E1E0079789D /* Build configuration list for PBXProject "Crate Custom Alert Object in SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AAF384225F52E1F0079789D /* Debug */,
+				3AAF384325F52E1F0079789D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AAF384425F52E1F0079789D /* Build configuration list for PBXNativeTarget "Crate Custom Alert Object in SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AAF384525F52E1F0079789D /* Debug */,
+				3AAF384625F52E1F0079789D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AAF382D25F52E1E0079789D /* Project object */;
+}
