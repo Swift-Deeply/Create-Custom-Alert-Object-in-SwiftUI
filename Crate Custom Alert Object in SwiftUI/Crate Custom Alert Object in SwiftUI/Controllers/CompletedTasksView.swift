@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CompletedTasksView: View {
     
+    // MARK: - Properties
+    @ObservedObject var dataStore = DataStore.shared
+    
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
