@@ -12,6 +12,7 @@ struct CompletedTasksView: View {
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
     @State private var alertShowing = false
+    @Environment(\.presentationMode) var presentationMode
     
     // MARK: - UI Elements
     var body: some View {
@@ -23,6 +24,11 @@ struct CompletedTasksView: View {
             }
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Completed Tasks")
+            .navigationBarItems(trailing: Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Done")
+            })
         }
     }
 }
