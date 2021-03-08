@@ -49,15 +49,6 @@ struct MainView: View {
             }
         }
     }
-    
-    var deleteButton: some View {
-        Button(action: {
-            dataStore.actionType = .delete
-            alertShowing = true
-        }) {
-            Text("Delete Item")
-        }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
