@@ -10,17 +10,17 @@ import SwiftUI
 class DataStore: ObservableObject {
     
     // MARK: - Enumaretions
-    enum ActionType: String {
-        case delete = "Delete item"
-        case edit = "Edit item"
-        case create = "Create a new item"
+    enum ActionType {
+        case delete
+        case edit
+        case create
     }
     
     // MARK: - Properties
     static let shared = DataStore()
     @Published var todoItems = TodoItem.example
     @State var actionType: ActionType? = nil
-    let actionTypes: [ActionType] = [.delete, .edit, .create]
+    let menuActionTypes: [ActionType] = [.delete, .edit]
     
     // MARK: - Methods
     func delete(_ offsets: IndexSet) {
@@ -28,8 +28,33 @@ class DataStore: ObservableObject {
 //        todoItems.remove(atOffsets: offsets)
     }
     
+    func edit() {
+        
+    }
+    
     func create(todoItem: TodoItem) {
         actionType = .create
 //        todoItems.insert(todoItem, at: 0)
+    }
+}
+
+extension DataStore.ActionType: RawRepresentable {
+    typealias RawValue = (String, String?)
+
+    init?(rawValue: (String, String?)) {
+        switch rawValue {
+        case ("Delete item", "After you delete this item, you won't be able to access this item again."): self = .delete
+        case ("Edit item", "After making changes to this item, ou cannot undo these changes."): self = .edit
+        case ("Create a new item", nil): self = .create
+        default: return nil
+        }
+    }
+
+    var rawValue: (String, String?) {
+        switch self {
+        case .delete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
+        case .edit: return ("Edit item", "After making changes to this item, ou cannot undo these changes.")
+        case .create: return ("Create a new item", nil)
+        }
     }
 }

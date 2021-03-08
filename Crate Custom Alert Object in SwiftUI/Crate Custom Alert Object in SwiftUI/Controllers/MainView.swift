@@ -19,15 +19,12 @@ struct MainView: View {
             List {
                 ForEach(dataStore.todoItems) { todoItem in
                     ListCellView(todoItem: todoItem)
-//                        .onTapGesture {
-//                            alertShowing = true
-//                        }
                         .contextMenu(ContextMenu(menuItems: { menuItems }))
                 }
-//                .onDelete(perform: dataStore.delete)
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
+                dataStore.actionType = .create
                 alertShowing = true
             }) {
                 Image(systemName: "plus.circle.fill")
@@ -40,12 +37,12 @@ struct MainView: View {
     }
     
     var menuItems: some View {
-        ForEach(dataStore.actionTypes, id: \.self) { actionType in
+        ForEach(dataStore.menuActionTypes, id: \.self) { actionType in
             Button(action: {
                 dataStore.actionType = actionType
                 alertShowing = true
             }) {
-                Text(actionType.rawValue)
+                Text(actionType.rawValue.0)
             }
         }
     }
