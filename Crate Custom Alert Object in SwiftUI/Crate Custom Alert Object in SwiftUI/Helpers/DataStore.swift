@@ -11,6 +11,8 @@ class DataStore: ObservableObject {
     
     // MARK: - Enumaretions
     enum ActionType {
+        case uncomplete
+        case complete
         case delete
         case edit
         case create

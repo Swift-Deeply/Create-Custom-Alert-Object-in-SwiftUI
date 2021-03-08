@@ -21,6 +21,8 @@ struct ListCellView: View {
                 
                 Text(todoItem.description!)
                     .font(.callout)
+                
+//                Text(todoItem.date)
             }
             
             Spacer()
