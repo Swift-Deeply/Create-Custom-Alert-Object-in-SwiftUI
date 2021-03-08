@@ -12,14 +12,28 @@ struct MainView: View {
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
     @State private var alertShowing = false
+    @State var 
     
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
             List {
-                ForEach(dataStore.todoItems) { todoItem in
-                    ListCellView(todoItem: todoItem)
-                        .contextMenu(ContextMenu(menuItems: { menuItems }))
+                Section {
+                    HStack {
+                        Spacer()
+                        Text("You have completed \(10) tasks. 🎉")
+                        Spacer()
+                    }
+                }
+                .onTapGesture {
+                    <#code#>
+                }
+                
+                Section {
+                    ForEach(dataStore.todoItems) { todoItem in
+                        ListCellView(todoItem: todoItem)
+                            .contextMenu(ContextMenu(menuItems: { menuItems }))
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())
@@ -34,6 +48,9 @@ struct MainView: View {
         .textFieldAlert(isPresented: $alertShowing) {
             TextFieldAlert(actionType: dataStore.actionType)
         }
+        .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
+            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+        })
     }
     
     var menuItems: some View {
