@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct TextFieldAlert {
-
+    
+    // MARK: - Enumaretions
+    enum ActionType {
+        case delete
+        case edit
+        case create
+    }
+    
     // MARK: Properties
-    let title: String
-    let message: String?
+    let actionType: DataStore.ActionType?
     var isPresented: Binding<Bool>? = nil
 
     // MARK: - Methods
     func dismissable(_ isPresented: Binding<Bool>) -> TextFieldAlert {
-        TextFieldAlert(title: title, message: message, isPresented: isPresented)
+        TextFieldAlert(actionType: actionType, isPresented: isPresented)
     }
 }
 
@@ -25,7 +31,7 @@ extension TextFieldAlert: UIViewControllerRepresentable {
     typealias UIViewControllerType = TextFieldAlertViewController
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<TextFieldAlert>) -> UIViewControllerType {
-        TextFieldAlertViewController(title: title, message: message, isPresented: isPresented)
+        TextFieldAlertViewController(title: "title", message: "message", isPresented: isPresented)
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<TextFieldAlert>) {}

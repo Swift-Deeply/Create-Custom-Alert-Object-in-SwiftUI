@@ -14,17 +14,27 @@ struct ListCellView: View {
     
     // MARK: - UI Elements
     var body: some View {
-        VStack {
-            Text(todoItem.title)
-            Text(todoItem.description!)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(todoItem.title)
+                    .font(.title2)
+                
+                Text(todoItem.description!)
+                    .font(.callout)
+            }
+            
+            Spacer()
+            
             Image(systemName: "flag.fill")
                 .foregroundColor(Color(todoItem.priority.rawValue))
         }
+        .padding(.vertical)
     }
 }
 
 struct ListCellView_Previews: PreviewProvider {
     static var previews: some View {
         ListCellView(todoItem: TodoItem.example[0])
+            .previewLayout(PreviewLayout.sizeThatFits)
     }
 }

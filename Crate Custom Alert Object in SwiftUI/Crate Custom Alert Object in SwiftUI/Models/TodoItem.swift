@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct TodoItem {
+struct TodoItem: Identifiable {
     
     enum Priority {
         case urgent
@@ -17,13 +17,17 @@ struct TodoItem {
     }
     
     // MARK: - Properties
+    var id = UUID()
     var title: String
     var description: String?
     var priority: Priority
     
     static let example = [
         TodoItem(title: "Go to Apple Store!", description: "Buy a new iPhone 12 Pro Max.", priority: .urgent),
-        TodoItem(title: "Go to Apple Store!", description: "Buy a new iPhone 12 Pro Max.", priority: .high)
+        TodoItem(title: "Make some coffee. ☕️", description: "At 12pm, I must drink a latte.", priority: .high),
+        TodoItem(title: "Look the mail boxes", description: "Mail boxes", priority: .high),
+        TodoItem(title: "Watch documentary", description: "I want to watch ", priority: .low),
+        TodoItem(title: "Read book", description: "I want to read B. Obama's new book.", priority: .normal)
     ]
 }
 

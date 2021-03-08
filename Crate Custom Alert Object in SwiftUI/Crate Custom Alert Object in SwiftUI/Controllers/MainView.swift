@@ -10,20 +10,52 @@ import SwiftUI
 struct MainView: View {
     
     // MARK: - Properties
+    @ObservedObject var dataStore = DataStore.shared
     @State private var alertShowing = false
     
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
-            Button(action: {
+            List {
+                ForEach(dataStore.todoItems) { todoItem in
+                    ListCellView(todoItem: todoItem)
+//                        .onTapGesture {
+//                            alertShowing = true
+//                        }
+                        .contextMenu(ContextMenu(menuItems: { menuItems }))
+                }
+//                .onDelete(perform: dataStore.delete)
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationBarItems(trailing: Button(action: {
                 alertShowing = true
             }) {
-                Text("Click here!")
-            }
+                Image(systemName: "plus.circle.fill")
+            })
             .navigationTitle("To-Do List")
         }
         .textFieldAlert(isPresented: $alertShowing) {
-            TextFieldAlert(title: "wpefk", message: "wpefk")
+            TextFieldAlert(actionType: dataStore.actionType)
+        }
+    }
+    
+    var menuItems: some View {
+        ForEach(dataStore.actionTypes, id: \.self) { actionType in
+            Button(action: {
+                dataStore.actionType = actionType
+                alertShowing = true
+            }) {
+                Text(actionType.rawValue)
+            }
+        }
+    }
+    
+    var deleteButton: some View {
+        Button(action: {
+            dataStore.actionType = .delete
+            alertShowing = true
+        }) {
+            Text("Delete Item")
         }
     }
 }
