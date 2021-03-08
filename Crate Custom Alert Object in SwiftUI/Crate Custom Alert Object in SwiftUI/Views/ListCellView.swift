@@ -17,12 +17,14 @@ struct ListCellView: View {
     // MARK: - UI Elements
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(todoItem.title)
-                    .font(.title2)
-                
-                Text(todoItem.description!)
-                    .font(.callout)
+            VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(todoItem.title)
+                        .font(.title2)
+                    
+                    Text(todoItem.description!)
+                        .font(.callout)
+                }
                 
                 Text(Date().dateString(date: todoItem.date))
                     .font(.caption)
