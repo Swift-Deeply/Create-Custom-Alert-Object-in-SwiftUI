@@ -70,11 +70,11 @@
 		3AAF383725F52E1E0079789D /* Crate Custom Alert Object in SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				3AAF386425F531EA0079789D /* Helpers */,
-				3AAF386025F531C70079789D /* Utilities */,
 				3AAF386325F531E10079789D /* Models */,
 				3AAF386125F531D10079789D /* Controllers */,
 				3AAF386225F531DA0079789D /* Views */,
+				3AAF386425F531EA0079789D /* Helpers */,
+				3AAF386025F531C70079789D /* Utilities */,
 				3AAF386525F532110079789D /* Sources */,
 				3AAF383E25F52E1F0079789D /* Preview Content */,
 			);

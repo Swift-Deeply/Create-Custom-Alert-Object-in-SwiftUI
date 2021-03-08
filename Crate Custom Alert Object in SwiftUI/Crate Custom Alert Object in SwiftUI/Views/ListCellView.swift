@@ -11,6 +11,8 @@ struct ListCellView: View {
     
     // MARK: - Properties
     let todoItem: TodoItem
+    let dataStore = DataStore.shared
+    @Binding var alertShowing: Bool
     
     // MARK: - UI Elements
     var body: some View {
@@ -33,12 +35,24 @@ struct ListCellView: View {
                 .foregroundColor(Color(todoItem.priority.rawValue))
         }
         .padding(.vertical)
+        .contextMenu(ContextMenu(menuItems: { menuItems }))
+    }
+    
+    var menuItems: some View {
+        ForEach(dataStore.menuActionTypes, id: \.self) { actionType in
+            Button(action: {
+                dataStore.actionType = actionType
+                alertShowing = true
+            }) {
+                Text(actionType.rawValue.0)
+            }
+        }
     }
 }
 
 struct ListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ListCellView(todoItem: TodoItem.example[0])
+        ListCellView(todoItem: TodoItem.example[0], alertShowing: .constant(false))
             .previewLayout(PreviewLayout.sizeThatFits)
     }
 }

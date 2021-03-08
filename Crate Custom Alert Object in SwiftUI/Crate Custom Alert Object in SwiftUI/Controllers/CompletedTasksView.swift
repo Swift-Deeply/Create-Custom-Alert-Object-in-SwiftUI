@@ -11,15 +11,18 @@ struct CompletedTasksView: View {
     
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
+    @State private var alertShowing = false
     
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
             List {
                 ForEach(dataStore.completedTodoItems) { todoItem in
-                    ListCellView(todoItem: todoItem)
+                    ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
                 }
             }
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Completed Tasks")
         }
     }
 }

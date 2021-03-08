@@ -31,8 +31,7 @@ struct MainView: View {
                 
                 Section {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
-                        ListCellView(todoItem: todoItem)
-                            .contextMenu(ContextMenu(menuItems: { menuItems }))
+                        ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
                     }
                 }
             }
@@ -43,7 +42,7 @@ struct MainView: View {
             }) {
                 Image(systemName: "plus.circle.fill")
             })
-            .navigationTitle("To-Do List")
+            .navigationTitle("Waiting Tasks")
         }
         .textFieldAlert(isPresented: $alertShowing) {
             TextFieldAlert(actionType: dataStore.actionType)
@@ -51,17 +50,6 @@ struct MainView: View {
         .sheet(isPresented: $completedTasksViewIsAppear, content: {
             CompletedTasksView()
         })
-    }
-    
-    var menuItems: some View {
-        ForEach(dataStore.menuActionTypes, id: \.self) { actionType in
-            Button(action: {
-                dataStore.actionType = actionType
-                alertShowing = true
-            }) {
-                Text(actionType.rawValue.0)
-            }
-        }
     }
 }
 
