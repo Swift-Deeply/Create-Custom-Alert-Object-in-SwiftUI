@@ -9,18 +9,11 @@ import SwiftUI
 
 class DataStore: ObservableObject {
     
-    // MARK: - Enumaretions
-    enum ActionType {
-        case uncomplete
-        case complete
-        case delete
-        case edit
-        case create
-    }
+    
     
     // MARK: - Properties
     static let shared = DataStore()
-    @State private var allTodoItems = TodoItem.example
+    @State var allTodoItems = TodoItem.example
     var incompleteTodoItems: [TodoItem] {
         return allTodoItems.filter { todoItem in
             !todoItem.completed
@@ -31,7 +24,7 @@ class DataStore: ObservableObject {
             todoItem.completed
         }
     }
-    @State var actionType: ActionType? = nil
+    @State var action: Action? = nil
     let menuActionTypes: [ActionType] = [.delete, .edit]
     
     // MARK: - Methods
