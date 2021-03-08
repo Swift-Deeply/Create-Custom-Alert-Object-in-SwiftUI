@@ -14,7 +14,9 @@ extension Date {
         return Calendar.current.date(byAdding: .day, value: days, to: self)!
     }
     
-    func dayComponent() -> Int {
-        return Calendar.current.component(.day, from: self)
+    func dateString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d"
+        return dateFormatter.string(from: date)
     }
 }

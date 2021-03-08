@@ -22,7 +22,9 @@ struct ListCellView: View {
                 Text(todoItem.description!)
                     .font(.callout)
                 
-//                Text(todoItem.date)
+                Text(Date().dateString(date: todoItem.date))
+                    .font(.caption)
+                    .foregroundColor(.gray)
             }
             
             Spacer()

@@ -12,7 +12,7 @@ struct MainView: View {
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
     @State private var alertShowing = false
-    @State var 
+    @State var completedTasksViewIsAppear = false
     
     // MARK: - UI Elements
     var body: some View {
@@ -26,7 +26,7 @@ struct MainView: View {
                     }
                 }
                 .onTapGesture {
-                    <#code#>
+                    completedTasksViewIsAppear = true
                 }
                 
                 Section {
@@ -48,8 +48,8 @@ struct MainView: View {
         .textFieldAlert(isPresented: $alertShowing) {
             TextFieldAlert(actionType: dataStore.actionType)
         }
-        .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+        .sheet(isPresented: $completedTasksViewIsAppear, content: {
+            CompletedTasksView()
         })
     }
     

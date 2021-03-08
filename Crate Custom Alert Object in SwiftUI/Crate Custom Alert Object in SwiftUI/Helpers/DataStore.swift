@@ -57,6 +57,8 @@ extension DataStore.ActionType: RawRepresentable {
         case .delete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
         case .edit: return ("Edit item", "After making changes to this item, ou cannot undo these changes.")
         case .create: return ("Create a new item", nil)
+        case .uncomplete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
+        case .complete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
         }
     }
 }
