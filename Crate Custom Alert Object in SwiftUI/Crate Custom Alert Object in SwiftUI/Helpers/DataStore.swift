@@ -20,7 +20,17 @@ class DataStore: ObservableObject {
     
     // MARK: - Properties
     static let shared = DataStore()
-    @Published var todoItems = TodoItem.example
+    @State private var allTodoItems = TodoItem.example
+    var incompleteTodoItems: [TodoItem] {
+        return allTodoItems.filter { todoItem in
+            !todoItem.completed
+        }
+    }
+    var completedTodoItems: [TodoItem] {
+        return allTodoItems.filter { todoItem in
+            todoItem.completed
+        }
+    }
     @State var actionType: ActionType? = nil
     let menuActionTypes: [ActionType] = [.delete, .edit]
     

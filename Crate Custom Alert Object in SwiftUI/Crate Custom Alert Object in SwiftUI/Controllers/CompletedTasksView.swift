@@ -15,7 +15,11 @@ struct CompletedTasksView: View {
     // MARK: - UI Elements
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List {
+                ForEach(dataStore.completedTodoItems) { todoItem in
+                    ListCellView(todoItem: todoItem)
+                }
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ struct MainView: View {
                 }
                 
                 Section {
-                    ForEach(dataStore.todoItems) { todoItem in
+                    ForEach(dataStore.incompleteTodoItems) { todoItem in
                         ListCellView(todoItem: todoItem)
                             .contextMenu(ContextMenu(menuItems: { menuItems }))
                     }
