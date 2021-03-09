@@ -37,7 +37,7 @@ struct MainView: View {
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
-                dataStore.actionType = .create
+//                dataStore.actionType = .create
                 alertShowing = true
             }) {
                 Image(systemName: "plus.circle.fill")
@@ -45,7 +45,7 @@ struct MainView: View {
             .navigationTitle("Waiting Tasks")
         }
         .textFieldAlert(isPresented: $alertShowing) {
-            TextFieldAlert(actionType: dataStore.action)
+            TextFieldAlert(/*action: dataStore.action*/)
         }
         .sheet(isPresented: $completedTasksViewIsAppear, content: {
             CompletedTasksView()
