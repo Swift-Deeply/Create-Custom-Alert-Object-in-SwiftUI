@@ -41,12 +41,12 @@ struct ListCellView: View {
     }
     
     var menuItems: some View {
-        ForEach(dataStore.menuActionTypes, id: \.self) { actionType in
+        ForEach(dataStore.menuActions, id: \.self) { action in
             Button(action: {
                 dataStore.actionType = actionType
                 alertShowing = true
             }) {
-                Text(actionType.rawValue.0)
+                Text(action.rawValue.0)
             }
         }
     }

@@ -24,12 +24,12 @@ class DataStore: ObservableObject {
             todoItem.completed
         }
     }
-    @State var action: Action? = nil
-    let menuActionTypes: [ActionType] = [.delete, .edit]
+    @State var currentAction: Action? = nil
+//    let menuActions: [ActionType] = [.delete, .edit]
     
     // MARK: - Methods
     func delete(_ offsets: IndexSet) {
-        actionType = .delete
+//        actionType = .delete
 //        todoItems.remove(atOffsets: offsets)
     }
     
@@ -38,30 +38,30 @@ class DataStore: ObservableObject {
     }
     
     func create(todoItem: TodoItem) {
-        actionType = .create
+//        actionType = .create
 //        todoItems.insert(todoItem, at: 0)
     }
 }
 
-extension DataStore.ActionType: RawRepresentable {
-    typealias RawValue = (String, String?)
-
-    init?(rawValue: (String, String?)) {
-        switch rawValue {
-        case ("Delete item", "After you delete this item, you won't be able to access this item again."): self = .delete
-        case ("Edit item", "After making changes to this item, ou cannot undo these changes."): self = .edit
-        case ("Create a new item", nil): self = .create
-        default: return nil
-        }
-    }
-
-    var rawValue: (String, String?) {
-        switch self {
-        case .delete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-        case .edit: return ("Edit item", "After making changes to this item, ou cannot undo these changes.")
-        case .create: return ("Create a new item", nil)
-        case .uncomplete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-        case .complete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-        }
-    }
-}
+//extension DataStore.ActionType: RawRepresentable {
+//    typealias RawValue = (String, String?)
+//
+//    init?(rawValue: (String, String?)) {
+//        switch rawValue {
+//        case ("Delete item", "After you delete this item, you won't be able to access this item again."): self = .delete
+//        case ("Edit item", "After making changes to this item, ou cannot undo these changes."): self = .edit
+//        case ("Create a new item", nil): self = .create
+//        default: return nil
+//        }
+//    }
+//
+//    var rawValue: (String, String?) {
+//        switch self {
+//        case .delete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
+//        case .edit: return ("Edit item", "After making changes to this item, ou cannot undo these changes.")
+//        case .create: return ("Create a new item", nil)
+//        case .uncomplete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
+//        case .complete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
+//        }
+//    }
+//}

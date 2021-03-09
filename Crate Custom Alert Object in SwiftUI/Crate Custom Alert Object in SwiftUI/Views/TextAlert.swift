@@ -17,12 +17,12 @@ struct TextFieldAlert {
     }
     
     // MARK: Properties
-    let actionType: DataStore.ActionType?
+//    let actionType: DataStore.ActionType?
     var isPresented: Binding<Bool>? = nil
 
     // MARK: - Methods
     func dismissable(_ isPresented: Binding<Bool>) -> TextFieldAlert {
-        TextFieldAlert(actionType: actionType, isPresented: isPresented)
+        TextFieldAlert(/*actionType: actionType, */isPresented: isPresented)
     }
 }
 

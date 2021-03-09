@@ -45,7 +45,7 @@ struct MainView: View {
             .navigationTitle("Waiting Tasks")
         }
         .textFieldAlert(isPresented: $alertShowing) {
-            TextFieldAlert(actionType: dataStore.actionType)
+            TextFieldAlert(actionType: dataStore.action)
         }
         .sheet(isPresented: $completedTasksViewIsAppear, content: {
             CompletedTasksView()
