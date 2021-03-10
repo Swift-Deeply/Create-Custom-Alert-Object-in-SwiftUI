@@ -40,14 +40,13 @@ class TextFieldAlertViewController: UIViewController {
         guard subscription == nil else { return }
         let ac = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
         
-        ac.view.tintColor = .red
-        
         ac.addTextField()
         ac.addTextField()
         ac.textFields![0].placeholder = "Title"
         ac.textFields![0].keyboardType = .numberPad
         ac.textFields![1].placeholder = "Description"
         ac.textFields![1].keyboardType = .numberPad
+        ac.textFields![2].placeholder = ""
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false
