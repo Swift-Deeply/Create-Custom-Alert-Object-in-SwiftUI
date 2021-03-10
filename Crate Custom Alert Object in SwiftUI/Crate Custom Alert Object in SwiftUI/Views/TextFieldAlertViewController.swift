@@ -12,16 +12,14 @@ import UIKit
 class TextFieldAlertViewController: UIViewController {
 
     // MARK: - Properties
-    private let alertTitle: String
-    private let message: String?
+    private let action: Action
     private var isPresented: Binding<Bool>?
 
     private var subscription: AnyCancellable?
     
     // MARK: - Life Cycle
-    init(title: String, message: String?, isPresented: Binding<Bool>?) {
-        self.alertTitle = title
-        self.message = message
+    init(action: Action, isPresented: Binding<Bool>?) {
+        self.action = action
         self.isPresented = isPresented
         
         super.init(nibName: nil, bundle: nil)
@@ -40,7 +38,7 @@ class TextFieldAlertViewController: UIViewController {
     // MARK: - Methods
     private func presentAlertController() {
         guard subscription == nil else { return }
-        let ac = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let ac = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
         
         ac.view.tintColor = .red
         
