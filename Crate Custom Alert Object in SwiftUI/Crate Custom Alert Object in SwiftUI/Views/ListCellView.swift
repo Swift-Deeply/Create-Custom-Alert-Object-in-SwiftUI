@@ -37,16 +37,20 @@ struct ListCellView: View {
                 .foregroundColor(Color(todoItem.priority.rawValue))
         }
         .padding(.vertical)
+        .onTapGesture {
+            dataStore.selectedTodoItem = todoItem
+            dataStore.menuActions = dataStore.setMenuActions()
+        }
         .contextMenu(ContextMenu(menuItems: { menuItems }))
     }
     
     var menuItems: some View {
-        ForEach(dataStore.menuActions, id: \.self) { action in
+        ForEach(dataStore.menuActions) { action in
             Button(action: {
-                dataStore.actionType = actionType
+                dataStore.currentAction = action
                 alertShowing = true
             }) {
-                Text(action.rawValue.0)
+                Text("action.menuTitle!")
             }
         }
     }

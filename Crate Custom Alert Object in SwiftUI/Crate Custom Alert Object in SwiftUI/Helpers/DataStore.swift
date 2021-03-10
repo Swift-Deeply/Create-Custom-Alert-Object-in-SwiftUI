@@ -9,8 +9,6 @@ import SwiftUI
 
 class DataStore: ObservableObject {
     
-    
-    
     // MARK: - Properties
     static let shared = DataStore()
     @State var allTodoItems = TodoItem.example
@@ -24,44 +22,46 @@ class DataStore: ObservableObject {
             todoItem.completed
         }
     }
+    @State var selectedTodoItem: TodoItem? = nil
+    @State var newTodoItem: TodoItem? = nil
     @State var currentAction: Action? = nil
-//    let menuActions: [ActionType] = [.delete, .edit]
+    @State var menuActions: [Action] = []
     
     // MARK: - Methods
-    func delete(_ offsets: IndexSet) {
+    func setMenuActions() -> [Action] {
+        if let selectedTodoItem = selectedTodoItem {
+            if selectedTodoItem.completed {
+                return [Action.actions.uncomplete, Action.actions.uncomplete, Action.actions.edit]
+            } else {
+                return [Action.actions.complete, Action.actions.uncomplete, Action.actions.edit]
+            }
+        } else {
+            print("wpeofkwepokfwopef")
+            return []
+        }
+    }
+    
+    func uncomplete() {
+        print("Uncomplete method is run.")
+    }
+    
+    func complete() {
+        print("Complete method is run.")
+    }
+    
+    func delete() {
+        print("Delete method is run.")
 //        actionType = .delete
 //        todoItems.remove(atOffsets: offsets)
     }
     
     func edit() {
-        
+        print("Edit method is run.")
     }
     
-    func create(todoItem: TodoItem) {
+    func create() {
+        print("Create method is run.")
 //        actionType = .create
 //        todoItems.insert(todoItem, at: 0)
     }
 }
-
-//extension DataStore.ActionType: RawRepresentable {
-//    typealias RawValue = (String, String?)
-//
-//    init?(rawValue: (String, String?)) {
-//        switch rawValue {
-//        case ("Delete item", "After you delete this item, you won't be able to access this item again."): self = .delete
-//        case ("Edit item", "After making changes to this item, ou cannot undo these changes."): self = .edit
-//        case ("Create a new item", nil): self = .create
-//        default: return nil
-//        }
-//    }
-//
-//    var rawValue: (String, String?) {
-//        switch self {
-//        case .delete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-//        case .edit: return ("Edit item", "After making changes to this item, ou cannot undo these changes.")
-//        case .create: return ("Create a new item", nil)
-//        case .uncomplete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-//        case .complete: return ("Delete item", "After you delete this item, you won't be able to access this item again.")
-//        }
-//    }
-//}
