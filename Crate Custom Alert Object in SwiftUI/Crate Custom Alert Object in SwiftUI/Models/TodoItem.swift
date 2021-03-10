@@ -9,11 +9,13 @@ import UIKit
 
 struct TodoItem: Identifiable {
     
-    enum Priority: String {
+    enum Priority: String, CaseIterable {
         case urgent = "Urgent"
         case high = "High"
         case normal = "Normal"
         case low = "Low"
+        
+        static let all = Priority.allCases
     }
     
     // MARK: - Properties
