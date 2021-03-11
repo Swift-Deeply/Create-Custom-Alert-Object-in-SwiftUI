@@ -46,7 +46,6 @@ class TextFieldAlertViewController: UIViewController {
         ac.textFields![0].keyboardType = .numberPad
         ac.textFields![1].placeholder = "Description"
         ac.textFields![1].keyboardType = .numberPad
-        ac.textFields![2].placeholder = ""
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false
@@ -65,12 +64,12 @@ class TextFieldAlertViewController: UIViewController {
     }
 }
 
-extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0
-    }
-}
+//extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 0
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return 0
+//    }
+//}

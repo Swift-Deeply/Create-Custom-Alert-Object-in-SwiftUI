@@ -37,10 +37,6 @@ struct ListCellView: View {
                 .foregroundColor(Color(todoItem.priority.rawValue))
         }
         .padding(.vertical)
-        .onTapGesture {
-            dataStore.selectedTodoItem = todoItem
-            dataStore.menuActions = dataStore.setMenuActions()
-        }
         .contextMenu(ContextMenu(menuItems: { menuItems }))
     }
     

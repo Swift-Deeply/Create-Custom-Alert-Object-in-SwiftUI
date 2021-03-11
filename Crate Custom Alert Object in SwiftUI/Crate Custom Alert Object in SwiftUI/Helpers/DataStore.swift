@@ -22,22 +22,16 @@ class DataStore: ObservableObject {
             todoItem.completed
         }
     }
-    @State var selectedTodoItem: TodoItem? = nil
-    @State var newTodoItem: TodoItem? = nil
-    @State var currentAction: Action? = nil
+    @Published var selectedTodoItem: TodoItem? = nil
+    @Published var currentAction: Action? = nil
     @State var menuActions: [Action] = []
     
     // MARK: - Methods
-    func setMenuActions() -> [Action] {
-        if let selectedTodoItem = selectedTodoItem {
-            if selectedTodoItem.completed {
-                return [Action.actions.uncomplete, Action.actions.uncomplete, Action.actions.edit]
-            } else {
-                return [Action.actions.complete, Action.actions.uncomplete, Action.actions.edit]
-            }
+    func setMenuActions(for selectedTodoItem: TodoItem) -> [Action] {
+        if selectedTodoItem.completed {
+            return [Action.actions.uncomplete, Action.actions.uncomplete, Action.actions.edit]
         } else {
-            print("wpeofkwepokfwopef")
-            return []
+            return [Action.actions.complete, Action.actions.uncomplete, Action.actions.edit]
         }
     }
     
