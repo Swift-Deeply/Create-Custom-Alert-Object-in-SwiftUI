@@ -9,13 +9,6 @@ import SwiftUI
 
 struct TextFieldAlert {
     
-    // MARK: - Enumaretions
-    enum ActionType {
-        case delete
-        case edit
-        case create
-    }
-    
     // MARK: Properties
 //    let actionType: DataStore.ActionType?
     var isPresented: Binding<Bool>? = nil
@@ -31,7 +24,7 @@ extension TextFieldAlert: UIViewControllerRepresentable {
     typealias UIViewControllerType = TextFieldAlertViewController
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<TextFieldAlert>) -> UIViewControllerType {
-        TextFieldAlertViewController(title: "title", message: "message", isPresented: isPresented)
+        TextFieldAlertViewController(action: <#Action#>, isPresented: isPresented)
     }
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: UIViewControllerRepresentableContext<TextFieldAlert>) {}
