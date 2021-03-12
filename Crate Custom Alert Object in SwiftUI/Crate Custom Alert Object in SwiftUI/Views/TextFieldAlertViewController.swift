@@ -57,13 +57,14 @@ class TextFieldAlertViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false
         }
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { [self] _ in
+        let completeAction = UIAlertAction(title: "Complete", style: .default) { [self] _ in
             withAnimation {
-                if action.actionType == .complete {
-                    DataStore.shared.complete(action.todoItem!)
-                } else if action.actionType == .uncomplete {
-                    DataStore.shared.uncomplete(action.todoItem!)
-                }
+                DataStore.shared.complete(action.todoItem!)
+            }
+        }
+        let uncompleteAction = UIAlertAction(title: "Uncomplete", style: .default) { [self] _ in
+            withAnimation {
+                DataStore.shared.uncomplete(action.todoItem!)
             }
         }
         let deleteAction = UIAlertAction(title: "Delete", style: .default) { [self] _ in
@@ -82,8 +83,10 @@ class TextFieldAlertViewController: UIViewController {
         }
         
         ac.addAction(cancelAction)
-        if action.actionType == .complete || action.actionType == .uncomplete {
-            ac.addAction(yesAction)
+        if action.actionType == .complete {
+            ac.addAction(completeAction)
+        } else if action.actionType == .uncomplete {
+            ac.addAction(uncompleteAction)
         } else if action.actionType == .delete {
             ac.addAction(deleteAction)
         } else if action.actionType == .edit {
