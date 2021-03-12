@@ -10,10 +10,10 @@ import UIKit
 struct TodoItem: Identifiable {
     
     enum Priority: String, CaseIterable {
-        case urgent = "Urgent"
-        case high = "High"
-        case normal = "Normal"
-        case low = "Low"
+        case urgent
+        case high
+        case normal
+        case low
         
         static let all = Priority.allCases
     }
@@ -36,24 +36,24 @@ struct TodoItem: Identifiable {
 }
 
 extension TodoItem.Priority: RawRepresentable {
-    typealias RawValue = UIColor
+    typealias RawValue = (String, UIColor)
 
     init?(rawValue: RawValue) {
         switch rawValue {
-        case UIColor.red: self = .urgent
-        case UIColor.yellow: self = .high
-        case UIColor.blue: self = .normal
-        case UIColor.gray: self = .low
+        case ("Urgent", UIColor.red): self = .urgent
+        case ("High", UIColor.yellow): self = .high
+        case ("Normal", UIColor.blue): self = .normal
+        case ("Low", UIColor.gray): self = .low
         default: return nil
         }
     }
 
         var rawValue: RawValue {
             switch self {
-            case .urgent: return UIColor.red
-            case .high: return UIColor.yellow
-            case .normal: return UIColor.blue
-            case .low: return UIColor.gray
+            case .urgent: return ("Urgent", UIColor.red)
+            case .high: return ("High", UIColor.yellow)
+            case .normal: return ("Normal", UIColor.blue)
+            case .low: return ("Low", UIColor.gray)
         }
     }
 }

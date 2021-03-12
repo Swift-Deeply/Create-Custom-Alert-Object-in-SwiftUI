@@ -17,6 +17,11 @@ class TextFieldAlertViewController: UIViewController {
 
     private var subscription: AnyCancellable?
     
+    let pickerViewComponents = TodoItem.Priority.allCases
+    
+    lazy var pickerView = UIPickerView()
+    lazy var alertController = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
+    
     // MARK: - Life Cycle
     init(action: Action, isPresented: Binding<Bool>?) {
         self.action = action
@@ -38,20 +43,23 @@ class TextFieldAlertViewController: UIViewController {
     // MARK: - Methods
     private func presentAlertController() {
         guard subscription == nil else { return }
-        let ac = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
         
         if action.actionType == .edit || action.actionType == .create {
-            ac.addTextField()
-            ac.addTextField()
-            ac.textFields![0].placeholder = "Title"
-            ac.textFields![0].keyboardType = .numberPad
-            ac.textFields![1].placeholder = "Description"
-            ac.textFields![1].keyboardType = .numberPad
+            alertController.addTextField()
+            alertController.addTextField()
+            alertController.addTextField()
+            alertController.textFields![0].placeholder = "Title"
+            alertController.textFields![0].keyboardType = .numberPad
+            alertController.textFields![1].placeholder = "Description"
+            alertController.textFields![1].keyboardType = .numberPad
+            alertController.textFields![2].placeholder = "Priority"
+            alertController.textFields![2].inputView = pickerView
         }
         
         if action.actionType == .edit {
-            ac.textFields![0].text = action.todoItem?.title
-            ac.textFields![1].text = action.todoItem?.description
+            alertController.textFields![0].text = action.todoItem?.title
+            alertController.textFields![1].text = action.todoItem?.description
+            alertController.textFields![2].text = action.todoItem?.priority.rawValue.0
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
@@ -73,8 +81,8 @@ class TextFieldAlertViewController: UIViewController {
             }
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { [self] _ in
-            let title = ac.textFields![0].text
-            let description = ac.textFields![1].text
+            let title = alertController.textFields![0].text
+            let description = alertController.textFields![1].text
             let newTodoItem = TodoItem(title: title!, description: description, priority: TodoItem.Priority.low, date: Date())
             
             withAnimation {
@@ -82,28 +90,43 @@ class TextFieldAlertViewController: UIViewController {
             }
         }
         
-        ac.addAction(cancelAction)
+        alertController.addAction(cancelAction)
         if action.actionType == .complete {
-            ac.addAction(completeAction)
+            alertController.addAction(completeAction)
         } else if action.actionType == .uncomplete {
-            ac.addAction(uncompleteAction)
+            alertController.addAction(uncompleteAction)
         } else if action.actionType == .delete {
-            ac.addAction(deleteAction)
+            alertController.addAction(deleteAction)
         } else if action.actionType == .edit {
-            ac.addAction(editAction)
+            alertController.addAction(editAction)
         }
 
         DataStore.shared.alertShowing = false
-        present(ac, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
-//extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 0
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return 0
-//    }
-//}
+extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        pickerView.delegate = self
+        pickerView.dataSource = self
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerViewComponents.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        pickerViewComponents[row].rawValue.0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        alertController.textFields![2].text = pickerViewComponents[row].rawValue.0
+    }
+}

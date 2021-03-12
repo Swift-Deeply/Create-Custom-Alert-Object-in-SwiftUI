@@ -34,7 +34,7 @@ struct ListCellView: View {
             Spacer()
             
             Image(systemName: "flag.fill")
-                .foregroundColor(Color(todoItem.priority.rawValue))
+                .foregroundColor(Color(todoItem.priority.rawValue.1))
         }
         .padding(.vertical)
         .contextMenu(menuItems: {
