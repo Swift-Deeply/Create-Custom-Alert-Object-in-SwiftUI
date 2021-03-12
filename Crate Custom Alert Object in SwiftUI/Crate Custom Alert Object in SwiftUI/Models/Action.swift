@@ -24,38 +24,17 @@ struct Action: Identifiable {
     let menuItemTitle: String?
     let alertTitle: String?
     let alertDescription: String?
-    let action: () -> Void
     
     static let actions: (uncomplete: Action, complete: Action, delete: Action, edit: Action, create: Action) = (
         uncomplete:
-            Action(actionType: .uncomplete, menuItemTitle: "Uncomplete", alertTitle: ActionType.uncomplete.rawValue, alertDescription: "Are ", action: {
-//                DataStore.shared.allTodoItems
-            }),
+            Action(actionType: .uncomplete, menuItemTitle: "Uncomplete", alertTitle: ActionType.uncomplete.rawValue, alertDescription: "Are "),
         complete:
-            Action(actionType: .complete, menuItemTitle: "Complete", alertTitle: ActionType.complete.rawValue, alertDescription: "After you delete this item, you won't be able to access this item again.", action: {
-                print("")
-            }),
+            Action(actionType: .complete, menuItemTitle: "Complete", alertTitle: ActionType.complete.rawValue, alertDescription: "After you delete this item, you won't be able to access this item again."),
         delete:
-            Action(actionType: .delete, menuItemTitle: "Delete", alertTitle: ActionType.delete.rawValue, alertDescription: nil, action: {
-                print("")
-            }),
+            Action(actionType: .delete, menuItemTitle: "Delete", alertTitle: ActionType.delete.rawValue, alertDescription: nil),
         edit:
-            Action(actionType: .edit, menuItemTitle: "Edit", alertTitle: ActionType.edit.rawValue, alertDescription: "After making changes to this item, ou cannot undo these changes.", action: {
-                print("")
-            }),
+            Action(actionType: .edit, menuItemTitle: "Edit", alertTitle: ActionType.edit.rawValue, alertDescription: "After making changes to this item, ou cannot undo these changes."),
         create:
-            Action(actionType: .create, menuItemTitle: nil, alertTitle: ActionType.create.rawValue, alertDescription: nil, action: {
-                DataStore.shared.create()
-            })
+            Action(actionType: .create, menuItemTitle: nil, alertTitle: ActionType.create.rawValue, alertDescription: nil)
     )
-    
-    static let inCompleteContextMenuActions: [Action] = [
-//        Action(actionType: .complete, menuItemTitle: "Complete", alertTitle: nil, alertDescription: nil, action: { getComplete })
-    ]
-    
-    func getComplete(todoItem: TodoItem) {
-        if let index = DataStore.shared.allTodoItems.firstIndex(where: { $0.id == todoItem.id }) {
-            DataStore.shared.allTodoItems[index].completed = true
-        }
-    }
 }

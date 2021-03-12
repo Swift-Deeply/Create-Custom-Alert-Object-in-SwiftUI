@@ -33,7 +33,7 @@ struct MainView: View {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
                         ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
                             .contextMenu(menuItems: {
-                                dataStore.getMenuItems(selected: todoItem)
+                                
                             })
                     }
                 }
@@ -41,7 +41,7 @@ struct MainView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
                 
-                dataStore.currentAction = Action.actions.create
+//                dataStore.currentAction = Action.actions.create
                 alertShowing = true
             }) {
                 Image(systemName: "plus.circle.fill")
@@ -54,6 +54,16 @@ struct MainView: View {
         .sheet(isPresented: $completedTasksViewIsAppear, content: {
             CompletedTasksView()
         })
+    }
+    
+    func getMenuItems(selected: TodoItem) -> some View {
+        ForEach(dataStore.getMenuItemsTexts(selected: selected), id: \.self) { menuItemText in
+            Button(action: {
+                alertShowing = true
+            }) {
+                Text(menuItemText)
+            }
+        }
     }
 }
 
