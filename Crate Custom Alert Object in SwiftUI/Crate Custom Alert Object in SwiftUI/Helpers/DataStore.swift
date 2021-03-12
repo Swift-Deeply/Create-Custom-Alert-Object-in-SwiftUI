@@ -32,16 +32,6 @@ class DataStore: ObservableObject {
     }
     
     // MARK: - Methods
-//    func getMenuItems(selected: TodoItem) -> some View {
-//        ForEach(getMenuItemsTexts(selected: selected), id: \.self) { menuItemText in
-//            Button(action: {
-//                alertShowing = true
-//            }) {
-//                Text(menuItemText)
-//            }
-//        }
-//    }
-    
     func getMenuItems(selected todoItem: TodoItem) -> some View {
         var actions: [Action] {
             if todoItem.completed {

@@ -37,7 +37,8 @@ struct MainView: View {
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
-                alertShowing = true
+                dataStore.alertShowing = true
+                dataStore.currentAction = Action.actions.create
             }) {
                 Image(systemName: "plus.circle.fill")
             })
