@@ -32,11 +32,15 @@ struct MainView: View {
                 Section {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
                         ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
+                            .contextMenu(menuItems: {
+                                dataStore.getMenuItems(selected: todoItem)
+                            })
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
+                
                 dataStore.currentAction = Action.actions.create
                 alertShowing = true
             }) {

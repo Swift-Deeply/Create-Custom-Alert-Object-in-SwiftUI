@@ -11,7 +11,7 @@ class DataStore: ObservableObject {
     
     // MARK: - Properties
     static let shared = DataStore()
-    @State var allTodoItems = TodoItem.example
+    @Published var allTodoItems = TodoItem.example
     var incompleteTodoItems: [TodoItem] {
         return allTodoItems.filter { todoItem in
             !todoItem.completed
@@ -22,40 +22,65 @@ class DataStore: ObservableObject {
             todoItem.completed
         }
     }
-    @Published var selectedTodoItem: TodoItem? = nil
     @Published var currentAction: Action? = nil
     @State var menuActions: [Action] = []
+    @Published var alertShowing = false
     
     // MARK: - Methods
-    func setMenuActions(for selectedTodoItem: TodoItem) -> [Action] {
-        if selectedTodoItem.completed {
-            return [Action.actions.uncomplete, Action.actions.uncomplete, Action.actions.edit]
-        } else {
-            return [Action.actions.complete, Action.actions.uncomplete, Action.actions.edit]
+    func getSelectedTodoItemIndex(selected todoItem: TodoItem) -> Int {
+        allTodoItems.firstIndex(where: { $0.id == todoItem.id })!
+    }
+    
+    func getMenuItems(selected todoItem: TodoItem) -> some View {
+        var actions: [Action] {
+            if todoItem.completed {
+                return [Action.actions.uncomplete, Action.actions.delete, Action.actions.edit]
+            } else {
+                return [Action.actions.complete, Action.actions.delete, Action.actions.edit]
+            }
+        }
+        let selectedTodoItemIndex = getSelectedTodoItemIndex(selected: todoItem)
+        
+        return ForEach(actions) { action in
+            Button(action: {
+                switch action.actionType {
+                case .uncomplete:
+                    self.allTodoItems[selectedTodoItemIndex].completed = false
+                case .complete:
+                    self.allTodoItems[selectedTodoItemIndex].completed = true
+                case .delete:
+                    self.alertShowing = true
+                    self.allTodoItems.remove(at: selectedTodoItemIndex)
+                case .edit:
+                    self.currentAction = Action.actions.edit
+                    self.alertShowing = true
+                case .create:
+                    self.currentAction = Action.actions.create
+                    self.alertShowing = true
+                }
+            }) {
+                Text(action.menuItemTitle!)
+            }
         }
     }
     
-    func uncomplete() {
-        print("Uncomplete method is run.")
+    func uncomplete(_ todoItem: TodoItem) {
+        allTodoItems[getSelectedTodoItemIndex(selected: todoItem)].completed = false
     }
     
-    func complete() {
-        print("Complete method is run.")
+    func complete(_ todoItem: TodoItem) {
+        allTodoItems[getSelectedTodoItemIndex(selected: todoItem)].completed = true
     }
     
-    func delete() {
-        print("Delete method is run.")
-//        actionType = .delete
-//        todoItems.remove(atOffsets: offsets)
+    func delete(_ todoItem: TodoItem) {
+        allTodoItems.remove(at: getSelectedTodoItemIndex(selected: todoItem))
     }
     
-    func edit() {
-        print("Edit method is run.")
+    func edit(_ todoItem: TodoItem, newTodoItem: TodoItem) {
+        allTodoItems[getSelectedTodoItemIndex(selected: todoItem)] = newTodoItem
     }
     
-    func create() {
-        print("Create method is run.")
-//        actionType = .create
-//        todoItems.insert(todoItem, at: 0)
+    func create(_ todoItem: TodoItem) {
+        allTodoItems.insert(todoItem, at: 0)
     }
 }
