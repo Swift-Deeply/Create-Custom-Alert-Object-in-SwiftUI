@@ -24,7 +24,6 @@ class DataStore: ObservableObject {
     }
     @Published var currentAction: Action? = nil
     @State var menuActions: [Action] = []
-    @Published var alertShowing = false
     
     // MARK: - Methods
     private func getSelectedTodoItemIndex(selected todoItem: TodoItem) -> Int {
