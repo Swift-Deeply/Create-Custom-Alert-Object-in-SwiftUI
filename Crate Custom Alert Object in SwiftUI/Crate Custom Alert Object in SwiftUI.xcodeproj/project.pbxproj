@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A81907825FC003400939D7A /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81907725FC003400939D7A /* UITextField+Ext.swift */; };
 		3AAF383925F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF383825F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift */; };
 		3AAF383B25F52E1E0079789D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF383A25F52E1E0079789D /* MainView.swift */; };
 		3AAF383D25F52E1F0079789D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAF383C25F52E1F0079789D /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A81907725FC003400939D7A /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		3AAF383525F52E1E0079789D /* Crate Custom Alert Object in SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crate Custom Alert Object in SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF383825F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crate_Custom_Alert_Object_in_SwiftUIApp.swift; sourceTree = "<group>"; };
 		3AAF383A25F52E1E0079789D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				3AAF385325F52F810079789D /* View+Ext.swift */,
 				3ACC454225F62ACC005DF2CE /* Date+Ext.swift */,
+				3A81907725FC003400939D7A /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				3AAF385725F530FA0079789D /* ListCellView.swift in Sources */,
 				3AAF384A25F52E890079789D /* TextFieldWrapper.swift in Sources */,
 				3AAF385425F52F810079789D /* View+Ext.swift in Sources */,
+				3A81907825FC003400939D7A /* UITextField+Ext.swift in Sources */,
 				3AAF383B25F52E1E0079789D /* MainView.swift in Sources */,
 				3ACC454325F62ACC005DF2CE /* Date+Ext.swift in Sources */,
 				3AAF383925F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift in Sources */,

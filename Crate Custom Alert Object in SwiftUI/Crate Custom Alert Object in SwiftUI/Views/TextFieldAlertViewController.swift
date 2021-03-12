@@ -41,10 +41,22 @@ class TextFieldAlertViewController: UIViewController {
     }
 
     // MARK: - Methods
+    @objc func cancelAction() {
+        alertController.textFields![3].resignFirstResponder()
+    }
+
+    @objc func doneAction() {
+        if let datePickerView = alertController.textFields![3].inputView as? UIDatePicker {
+            alertController.textFields![3].text = Date().dateString(date: datePickerView.date)
+            alertController.textFields![3].resignFirstResponder()
+        }
+    }
+    
     private func presentAlertController() {
         guard subscription == nil else { return }
         
         if action.actionType == .edit || action.actionType == .create {
+            alertController.addTextField()
             alertController.addTextField()
             alertController.addTextField()
             alertController.addTextField()
@@ -54,6 +66,8 @@ class TextFieldAlertViewController: UIViewController {
             alertController.textFields![1].keyboardType = .numberPad
             alertController.textFields![2].placeholder = "Priority"
             alertController.textFields![2].inputView = pickerView
+            alertController.textFields![3].placeholder = "Date"
+            alertController.textFields![3].datePicker(target: self, doneAction: #selector(doneAction))
         }
         
         if action.actionType == .edit {
@@ -83,7 +97,8 @@ class TextFieldAlertViewController: UIViewController {
         let editAction = UIAlertAction(title: "Edit", style: .default) { [self] _ in
             let title = alertController.textFields![0].text
             let description = alertController.textFields![1].text
-            let newTodoItem = TodoItem(title: title!, description: description, priority: TodoItem.Priority.low, date: Date())
+            let priority = TodoItem.Priority.allCases.filter { $0.rawValue.0 == alertController.textFields![2].text }
+            let newTodoItem = TodoItem(title: title!, description: description, priority: priority[0], date: Date())
             
             withAnimation {
                 DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
