@@ -11,7 +11,6 @@ struct CompletedTasksView: View {
     
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
-    @State private var alertShowing = false
     @Environment(\.presentationMode) var presentationMode
     
     // MARK: - UI Elements
@@ -19,7 +18,7 @@ struct CompletedTasksView: View {
         NavigationView {
             List {
                 ForEach(dataStore.completedTodoItems) { todoItem in
-                    ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
+                    ListCellView(todoItem: todoItem, alertShowing: $dataStore.alertShowing)
                 }
             }
             .listStyle(InsetGroupedListStyle())
@@ -29,6 +28,9 @@ struct CompletedTasksView: View {
             }) {
                 Text("Done")
             })
+            .textFieldAlert(isPresented: $dataStore.alertShowing) {
+                TextFieldAlert(action: dataStore.currentAction!)
+            }
         }
     }
 }

@@ -67,13 +67,14 @@ class TextFieldAlertViewController: UIViewController {
             alertController.textFields![2].placeholder = "Priority"
             alertController.textFields![2].inputView = pickerView
             alertController.textFields![3].placeholder = "Date"
-            alertController.textFields![3].datePicker(target: self, doneAction: #selector(doneAction))
+            alertController.textFields![3].datePicker(target: self, date: action.todoItem!.date, doneAction: #selector(doneAction), cancelAction: #selector(cancelAction))
         }
         
         if action.actionType == .edit {
             alertController.textFields![0].text = action.todoItem?.title
             alertController.textFields![1].text = action.todoItem?.description
             alertController.textFields![2].text = action.todoItem?.priority.rawValue.0
+            alertController.textFields![3].text = Date().dateString(date: action.todoItem!.date)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
