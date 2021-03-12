@@ -59,19 +59,37 @@ class TextFieldAlertViewController: UIViewController {
         }
         let yesAction = UIAlertAction(title: "Yes", style: .default) { [self] _ in
             withAnimation {
-                DataStore.shared.complete(action.todoItem!)
+                if action.actionType == .complete {
+                    DataStore.shared.complete(action.todoItem!)
+                } else if action.actionType == .uncomplete {
+                    DataStore.shared.uncomplete(action.todoItem!)
+                }
+            }
+        }
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { [self] _ in
+            withAnimation {
+                DataStore.shared.delete(action.todoItem!)
             }
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { [self] _ in
             let title = ac.textFields![0].text
             let description = ac.textFields![1].text
             let newTodoItem = TodoItem(title: title!, description: description, priority: TodoItem.Priority.low, date: Date())
-            DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
+            
+            withAnimation {
+                DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
+            }
         }
         
         ac.addAction(cancelAction)
-//        ac.addAction(yesAction)
-        ac.addAction(editAction)
+        if action.actionType == .complete || action.actionType == .uncomplete {
+            ac.addAction(yesAction)
+        } else if action.actionType == .delete {
+            ac.addAction(deleteAction)
+        } else if action.actionType == .edit {
+            ac.addAction(editAction)
+        }
+
         DataStore.shared.alertShowing = false
         present(ac, animated: true, completion: nil)
     }
