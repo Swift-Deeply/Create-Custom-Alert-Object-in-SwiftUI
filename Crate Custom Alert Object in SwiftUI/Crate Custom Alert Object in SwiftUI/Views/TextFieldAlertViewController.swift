@@ -11,16 +11,16 @@ import UIKit
 
 class TextFieldAlertViewController: UIViewController {
 
+    // MARK: - UI Elements
+    lazy var pickerView = UIPickerView()
+    lazy var alertController = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
+    
     // MARK: - Properties
     private let action: Action
     private var isPresented: Binding<Bool>?
+    let pickerViewComponents = TodoItem.Priority.allCases
 
     private var subscription: AnyCancellable?
-    
-    let pickerViewComponents = TodoItem.Priority.allCases
-    
-    lazy var pickerView = UIPickerView()
-    lazy var alertController = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
     
     // MARK: - Life Cycle
     init(action: Action, isPresented: Binding<Bool>?) {
@@ -96,13 +96,14 @@ class TextFieldAlertViewController: UIViewController {
             }
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { [self] _ in
-            let title = alertController.textFields![0].text
-            let description = alertController.textFields![1].text
             let priority = TodoItem.Priority.allCases.filter { $0.rawValue.0 == alertController.textFields![2].text }
-            let newTodoItem = TodoItem(title: title!, description: description, priority: priority[0], date: Date())
-            
-            withAnimation {
-                DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
+            if let title = alertController.textFields![0].text,
+               let description = alertController.textFields![1].text,
+               let datePicker = alertController.textFields![3].inputView as? UIDatePicker {
+                let newTodoItem = TodoItem(title: title, description: description, priority: priority[0], date: datePicker.date)
+                withAnimation {
+                    DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
+                }
             }
         }
         
