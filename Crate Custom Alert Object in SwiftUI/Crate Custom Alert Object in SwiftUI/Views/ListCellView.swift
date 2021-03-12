@@ -22,7 +22,7 @@ struct ListCellView: View {
                     Text(todoItem.title)
                         .font(.title2)
                     
-                    Text(todoItem.description!)
+                    Text(todoItem.description ?? "")
                         .font(.callout)
                 }
                 
@@ -37,6 +37,9 @@ struct ListCellView: View {
                 .foregroundColor(Color(todoItem.priority.rawValue))
         }
         .padding(.vertical)
+        .contextMenu(menuItems: {
+            dataStore.getMenuItems(selected: todoItem)
+        })
     }
 }
 

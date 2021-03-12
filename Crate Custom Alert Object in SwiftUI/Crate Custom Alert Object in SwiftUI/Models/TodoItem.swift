@@ -23,7 +23,7 @@ struct TodoItem: Identifiable {
     var title: String
     var description: String?
     var priority: Priority
-    var completed: Bool
+    var completed = false
     var date: Date
     
     static let example = [

@@ -40,26 +40,39 @@ class TextFieldAlertViewController: UIViewController {
         guard subscription == nil else { return }
         let ac = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
         
-        ac.addTextField()
-        ac.addTextField()
-        ac.textFields![0].placeholder = "Title"
-        ac.textFields![0].keyboardType = .numberPad
-        ac.textFields![1].placeholder = "Description"
-        ac.textFields![1].keyboardType = .numberPad
+        if action.actionType == .edit || action.actionType == .create {
+            ac.addTextField()
+            ac.addTextField()
+            ac.textFields![0].placeholder = "Title"
+            ac.textFields![0].keyboardType = .numberPad
+            ac.textFields![1].placeholder = "Description"
+            ac.textFields![1].keyboardType = .numberPad
+        }
+        
+        if action.actionType == .edit {
+            ac.textFields![0].text = action.todoItem?.title
+            ac.textFields![1].text = action.todoItem?.description
+        }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false
         }
-//        let createAction = UIAlertAction(title: "Create", style: .default) { [unowned ac] _ in
-//            let title = ac.textFields![0].text!
-//            let description = ac.textFields![1].text!
-//            let note = Note(title: title, description: description)
-//
-//            DataProvider.shared.create(note: note)
-//        }
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { [self] _ in
+            withAnimation {
+                DataStore.shared.complete(action.todoItem!)
+            }
+        }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [self] _ in
+            let title = ac.textFields![0].text
+            let description = ac.textFields![1].text
+            let newTodoItem = TodoItem(title: title!, description: description, priority: TodoItem.Priority.low, date: Date())
+            DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
+        }
         
         ac.addAction(cancelAction)
-//        ac.addAction(createAction)
+//        ac.addAction(yesAction)
+        ac.addAction(editAction)
+        DataStore.shared.alertShowing = false
         present(ac, animated: true, completion: nil)
     }
 }

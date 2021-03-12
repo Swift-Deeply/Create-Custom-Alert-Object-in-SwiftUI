@@ -24,13 +24,25 @@ class DataStore: ObservableObject {
     }
     @Published var currentAction: Action? = nil
     @State var menuActions: [Action] = []
+    @Published var alertShowing = false
     
     // MARK: - Methods
     private func getSelectedTodoItemIndex(selected todoItem: TodoItem) -> Int {
         allTodoItems.firstIndex(where: { $0.id == todoItem.id })!
     }
     
-    func getMenuItemsTexts(selected todoItem: TodoItem) -> [String] {
+    // MARK: - Methods
+//    func getMenuItems(selected: TodoItem) -> some View {
+//        ForEach(getMenuItemsTexts(selected: selected), id: \.self) { menuItemText in
+//            Button(action: {
+//                alertShowing = true
+//            }) {
+//                Text(menuItemText)
+//            }
+//        }
+//    }
+    
+    func getMenuItems(selected todoItem: TodoItem) -> some View {
         var actions: [Action] {
             if todoItem.completed {
                 return [Action.actions.uncomplete, Action.actions.delete, Action.actions.edit]
@@ -39,12 +51,15 @@ class DataStore: ObservableObject {
             }
         }
         
-        var menuItemsTexts: [String]!
-        for action in actions {
-            menuItemsTexts.insert(action.menuItemTitle!, at: 0)
+        return ForEach(actions) { action in
+            Button(action: { [self] in
+                alertShowing = true
+                currentAction = action
+                currentAction!.todoItem = todoItem
+            }) {
+                Text(action.menuItemTitle!)
+            }
         }
-        
-        return menuItemsTexts
     }
     
     func uncomplete(_ todoItem: TodoItem) {

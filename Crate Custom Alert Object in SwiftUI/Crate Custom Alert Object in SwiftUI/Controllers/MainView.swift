@@ -32,9 +32,6 @@ struct MainView: View {
                 Section {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
                         ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
-                            .contextMenu(menuItems: {
-                                
-                            })
                     }
                 }
             }
@@ -46,22 +43,12 @@ struct MainView: View {
             })
             .navigationTitle("Waiting Tasks")
         }
-        .textFieldAlert(isPresented: $alertShowing) {
+        .textFieldAlert(isPresented: $dataStore.alertShowing) {
             TextFieldAlert(action: dataStore.currentAction!)
         }
         .sheet(isPresented: $completedTasksViewIsAppear, content: {
             CompletedTasksView()
         })
-    }
-    
-    func getMenuItems(selected: TodoItem) -> some View {
-        ForEach(dataStore.getMenuItemsTexts(selected: selected), id: \.self) { menuItemText in
-            Button(action: {
-                alertShowing = true
-            }) {
-                Text(menuItemText)
-            }
-        }
     }
 }
 
