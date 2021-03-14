@@ -43,9 +43,9 @@ class DataStore: ObservableObject {
         
         return ForEach(actions) { action in
             Button(action: { [self] in
-                alertShowing = true
                 currentAction = action
                 currentAction!.todoItem = todoItem
+                alertShowing = true
             }) {
                 Text(action.menuItemTitle!)
             }
