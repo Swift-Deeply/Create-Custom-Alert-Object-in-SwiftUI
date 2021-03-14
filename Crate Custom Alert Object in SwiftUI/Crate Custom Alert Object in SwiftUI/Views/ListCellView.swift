@@ -22,8 +22,10 @@ struct ListCellView: View {
                     Text(todoItem.title)
                         .font(.title2)
                     
-                    Text(todoItem.description ?? "")
-                        .font(.callout)
+                    if !todoItem.description!.isEmpty {
+                        Text(todoItem.description!)
+                            .font(.callout)
+                    }
                 }
                 
                 Text(Date().dateString(date: todoItem.date))
