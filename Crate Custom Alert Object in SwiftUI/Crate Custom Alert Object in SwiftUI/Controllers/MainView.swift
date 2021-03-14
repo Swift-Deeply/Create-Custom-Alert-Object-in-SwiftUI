@@ -42,8 +42,6 @@ struct MainView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationBarItems(trailing: Button(action: {
                 dataStore.currentAction = Action.actions.create
-                let newTodoItem = TodoItem(title: "", priority: .high, date: Date())
-                dataStore.currentAction!.todoItem = newTodoItem
                 dataStore.alertShowing = true
             }) {
                 Image(systemName: "plus.circle.fill")
