@@ -120,6 +120,8 @@ class TextFieldAlertViewController: UIViewController {
 }
 
 extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -127,6 +129,7 @@ extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSo
         pickerView.dataSource = self
     }
     
+    // MARK: - Methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
