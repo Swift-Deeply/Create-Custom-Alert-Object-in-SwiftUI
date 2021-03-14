@@ -28,15 +28,19 @@ struct ListCellView: View {
                     }
                 }
                 
-                Text(Date().dateString(date: todoItem.date))
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                if let date = todoItem.date {
+                    Text(Date().dateString(date: date))
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
             }
             
             Spacer()
             
-            Image(systemName: "flag.fill")
-                .foregroundColor(Color(todoItem.priority.rawValue.1))
+            if let priorityColor = todoItem.priority?.rawValue.1 {
+                Image(systemName: "flag.fill")
+                    .foregroundColor(Color(priorityColor))
+            }
         }
         .padding(.vertical)
         .contextMenu(menuItems: {

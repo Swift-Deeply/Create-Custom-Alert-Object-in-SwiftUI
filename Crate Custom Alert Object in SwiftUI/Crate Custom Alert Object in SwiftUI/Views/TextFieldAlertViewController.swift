@@ -71,7 +71,7 @@ class TextFieldAlertViewController: UIViewController {
         if action.actionType == .edit {
             alertController.textFields![0].text = action.todoItem?.title
             alertController.textFields![1].text = action.todoItem?.description
-            alertController.textFields![2].text = action.todoItem?.priority.rawValue.0
+            alertController.textFields![2].text = action.todoItem?.priority?.rawValue.0
             alertController.textFields![3].text = Date().dateString(date: action.todoItem!.date)
         }
 
@@ -103,11 +103,12 @@ class TextFieldAlertViewController: UIViewController {
             }
         }
         let createAction = UIAlertAction(title: "Create", style: .default) { [self] _ in
-            let priority = TodoItem.Priority.allCases.filter { $0.rawValue.0 == alertController.textFields![2].text }
             if let title = alertController.textFields![0].text,
                let description = alertController.textFields![1].text,
+               let priorityText = alertController.textFields![2].text,
                let datePicker = alertController.textFields![3].inputView as? UIDatePicker {
-                let newTodoItem = TodoItem(title: title, description: description, priority: priority[0], date: datePicker.date)
+                let priority = TodoItem.Priority.allCases.filter({ $0.rawValue.0 == priorityText })
+                let newTodoItem = TodoItem(title: title, description: description, priority: priority.isEmpty ? nil : priority[0], date: datePicker.date)
                 DataStore.shared.create(newTodoItem)
             }
         }
@@ -155,5 +156,15 @@ extension TextFieldAlertViewController: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         alertController.textFields![2].text = pickerViewComponents[row].rawValue.0
+    }
+}
+
+extension TextFieldAlertViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let _ = action.todoItem?.date {
+            alertController.actions[1].isEnabled = false
+        } else {
+            alertController.actions[1].isEnabled = false
+        }
     }
 }
