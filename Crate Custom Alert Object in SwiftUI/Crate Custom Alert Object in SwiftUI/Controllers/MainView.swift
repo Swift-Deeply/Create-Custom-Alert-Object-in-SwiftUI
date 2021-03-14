@@ -21,7 +21,10 @@ struct MainView: View {
                 Section {
                     HStack {
                         Spacer()
-                        Text("You have completed \(10) tasks. 🎉")
+                        
+                        Text("You have completed \(dataStore.completedTodoItems.count) tasks. 🎉")
+                            .multilineTextAlignment(.center)
+                        
                         Spacer()
                     }
                 }
