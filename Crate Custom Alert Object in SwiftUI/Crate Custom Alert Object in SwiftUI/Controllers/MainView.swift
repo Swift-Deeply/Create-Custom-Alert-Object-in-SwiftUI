@@ -11,7 +11,6 @@ struct MainView: View {
     
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
-    @State private var alertShowing = false
     @State var completedTasksViewIsAppear = false
     
     // MARK: - UI Elements
@@ -36,7 +35,7 @@ struct MainView: View {
                 
                 Section {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
-                        ListCellView(todoItem: todoItem, alertShowing: $alertShowing)
+                        ListCellView(todoItem: todoItem, alertShowing: $dataStore.alertShowing)
                     }
                 }
             }

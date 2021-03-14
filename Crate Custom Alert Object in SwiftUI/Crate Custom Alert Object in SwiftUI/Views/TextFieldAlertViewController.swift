@@ -61,13 +61,11 @@ class TextFieldAlertViewController: UIViewController {
             alertController.addTextField()
             alertController.addTextField()
             alertController.textFields![0].placeholder = "Title"
-            alertController.textFields![0].keyboardType = .numberPad
             alertController.textFields![1].placeholder = "Description"
-            alertController.textFields![1].keyboardType = .numberPad
             alertController.textFields![2].placeholder = "Priority"
             alertController.textFields![2].inputView = pickerView
             alertController.textFields![3].placeholder = "Date"
-            alertController.textFields![3].datePicker(target: self, date: action.todoItem!.date, doneAction: #selector(doneAction), cancelAction: #selector(cancelAction))
+            alertController.textFields![3].datePicker(target: self, date: action.todoItem?.date ?? Date(), doneAction: #selector(doneAction), cancelAction: #selector(cancelAction))
         }
         
         if action.actionType == .edit {
@@ -101,9 +99,7 @@ class TextFieldAlertViewController: UIViewController {
                let description = alertController.textFields![1].text,
                let datePicker = alertController.textFields![3].inputView as? UIDatePicker {
                 let newTodoItem = TodoItem(title: title, description: description, priority: priority[0], date: datePicker.date)
-                withAnimation {
-                    DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
-                }
+                DataStore.shared.edit(action.todoItem!, newTodoItem: newTodoItem)
             }
         }
         
