@@ -41,7 +41,7 @@ extension TodoItem.Priority: RawRepresentable {
     init?(rawValue: RawValue) {
         switch rawValue {
         case ("Urgent", UIColor.red): self = .urgent
-        case ("High", UIColor.yellow): self = .high
+        case ("High", UIColor.orange): self = .high
         case ("Normal", UIColor.blue): self = .normal
         case ("Low", UIColor.gray): self = .low
         default: return nil
@@ -51,7 +51,7 @@ extension TodoItem.Priority: RawRepresentable {
         var rawValue: RawValue {
             switch self {
             case .urgent: return ("Urgent", UIColor.red)
-            case .high: return ("High", UIColor.yellow)
+            case .high: return ("High", UIColor.orange)
             case .normal: return ("Normal", UIColor.blue)
             case .low: return ("Low", UIColor.gray)
         }

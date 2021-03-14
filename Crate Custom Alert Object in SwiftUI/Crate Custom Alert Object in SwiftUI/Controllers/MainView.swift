@@ -46,6 +46,7 @@ struct MainView: View {
                 dataStore.currentAction = Action.actions.create
             }) {
                 Image(systemName: "plus.circle.fill")
+                    .font(.title3)
             })
             .navigationTitle("Waiting Tasks")
         }
