@@ -37,24 +37,24 @@ struct TodoItem: Identifiable {
 }
 
 extension TodoItem.Priority: RawRepresentable {
-    typealias RawValue = (String, UIColor)
+    typealias RawValue = (name: String, color: UIColor)
 
     init?(rawValue: RawValue) {
         switch rawValue {
-        case ("Urgent", UIColor.red): self = .urgent
-        case ("High", UIColor.orange): self = .high
-        case ("Normal", UIColor.blue): self = .normal
-        case ("Low", UIColor.gray): self = .low
+        case (name: "Urgent", UIColor.red): self = .urgent
+        case (name: "High", UIColor.orange): self = .high
+        case (name: "Normal", UIColor.blue): self = .normal
+        case (name: "Low", UIColor.gray): self = .low
         default: return nil
         }
     }
 
         var rawValue: RawValue {
             switch self {
-            case .urgent: return ("Urgent", UIColor.red)
-            case .high: return ("High", UIColor.orange)
-            case .normal: return ("Normal", UIColor.blue)
-            case .low: return ("Low", UIColor.gray)
+            case .urgent: return (name: "Urgent", color: UIColor.red)
+            case .high: return (name: "High", color: UIColor.orange)
+            case .normal: return (name: "Normal", color: UIColor.blue)
+            case .low: return (name: "Low", color: UIColor.gray)
         }
     }
 }

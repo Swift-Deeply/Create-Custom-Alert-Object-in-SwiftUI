@@ -37,7 +37,7 @@ struct ListCellView: View {
             
             Spacer()
             
-            if let priorityColor = todoItem.priority?.rawValue.1 {
+            if let priorityColor = todoItem.priority?.rawValue.color {
                 Image(systemName: "flag.fill")
                     .foregroundColor(Color(priorityColor))
             }
