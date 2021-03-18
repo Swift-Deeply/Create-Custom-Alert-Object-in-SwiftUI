@@ -31,7 +31,6 @@ class DataStore: ObservableObject {
         allTodoItems.firstIndex(where: { $0.id == todoItem.id })!
     }
     
-    // MARK: - Methods
     func getMenuItems(selected todoItem: TodoItem) -> some View {
         var actions: [Action] {
             if todoItem.completed {
