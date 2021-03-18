@@ -23,7 +23,7 @@ class DataStore: ObservableObject {
         }
     }
     @Published var currentAction: Action? = nil
-    @State var menuActions: [Action] = []
+    @State private var menuActions: [Action] = []
     @Published var alertShowing = false
     
     // MARK: - Methods
