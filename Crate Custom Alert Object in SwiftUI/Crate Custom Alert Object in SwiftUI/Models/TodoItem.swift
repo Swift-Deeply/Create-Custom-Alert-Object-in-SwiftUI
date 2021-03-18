@@ -49,12 +49,12 @@ extension TodoItem.Priority: RawRepresentable {
         }
     }
 
-        var rawValue: RawValue {
-            switch self {
-            case .urgent: return (name: "Urgent", color: UIColor.red)
-            case .high: return (name: "High", color: UIColor.orange)
-            case .normal: return (name: "Normal", color: UIColor.blue)
-            case .low: return (name: "Low", color: UIColor.gray)
+    var rawValue: RawValue {
+        switch self {
+        case .urgent: return (name: "Urgent", color: UIColor.red)
+        case .high: return (name: "High", color: UIColor.orange)
+        case .normal: return (name: "Normal", color: UIColor.blue)
+        case .low: return (name: "Low", color: UIColor.gray)
         }
     }
 }
