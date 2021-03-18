@@ -154,8 +154,8 @@
 		3ACC451B25F615F2005DF2CE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3AAF385325F52F810079789D /* View+Ext.swift */,
 				3ACC454225F62ACC005DF2CE /* Date+Ext.swift */,
+				3AAF385325F52F810079789D /* View+Ext.swift */,
 				3A81907725FC003400939D7A /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
