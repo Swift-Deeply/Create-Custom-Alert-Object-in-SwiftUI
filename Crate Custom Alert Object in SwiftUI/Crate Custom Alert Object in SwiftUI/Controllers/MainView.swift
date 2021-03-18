@@ -18,19 +18,10 @@ struct MainView: View {
         NavigationView {
             List {
                 if !dataStore.completedTodoItems.isEmpty {
-                    Section {
-                        HStack {
-                            Spacer()
-                            
-                            Text("You have completed \(dataStore.completedTodoItems.count) tasks. 🎉")
-                                .multilineTextAlignment(.center)
-                            
-                            Spacer()
+                    CompletedTasksSectionView(count: dataStore.completedTodoItems.count)
+                        .onTapGesture {
+                            completedTasksViewIsAppear = true
                         }
-                    }
-                    .onTapGesture {
-                        completedTasksViewIsAppear = true
-                    }
                 }
                 
                 Section {

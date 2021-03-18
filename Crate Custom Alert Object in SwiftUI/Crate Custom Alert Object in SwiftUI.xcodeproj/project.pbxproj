@@ -22,6 +22,7 @@
 		3ACC454025F6299B005DF2CE /* CompletedTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC453F25F6299B005DF2CE /* CompletedTasksView.swift */; };
 		3ACC454325F62ACC005DF2CE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC454225F62ACC005DF2CE /* Date+Ext.swift */; };
 		3ACC455325F6333F005DF2CE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC455225F6333F005DF2CE /* Action.swift */; };
+		3AD4DFD42603F9C400322B41 /* CompletedTasksSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD4DFD32603F9C400322B41 /* CompletedTasksSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3ACC453F25F6299B005DF2CE /* CompletedTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksView.swift; sourceTree = "<group>"; };
 		3ACC454225F62ACC005DF2CE /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		3ACC455225F6333F005DF2CE /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		3AD4DFD32603F9C400322B41 /* CompletedTasksSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasksSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAF385625F530FA0079789D /* ListCellView.swift */,
+				3AD4DFD32603F9C400322B41 /* CompletedTasksSectionView.swift */,
 				3AAF384925F52E890079789D /* TextFieldWrapper.swift */,
 				3AAF384C25F52E9A0079789D /* TextAlert.swift */,
 				3AAF384F25F52EAF0079789D /* TextFieldAlertViewController.swift */,
@@ -234,6 +237,7 @@
 				3AAF384A25F52E890079789D /* TextFieldWrapper.swift in Sources */,
 				3AAF385425F52F810079789D /* View+Ext.swift in Sources */,
 				3A81907825FC003400939D7A /* UITextField+Ext.swift in Sources */,
+				3AD4DFD42603F9C400322B41 /* CompletedTasksSectionView.swift in Sources */,
 				3AAF383B25F52E1E0079789D /* MainView.swift in Sources */,
 				3ACC454325F62ACC005DF2CE /* Date+Ext.swift in Sources */,
 				3AAF383925F52E1E0079789D /* Crate_Custom_Alert_Object_in_SwiftUIApp.swift in Sources */,
