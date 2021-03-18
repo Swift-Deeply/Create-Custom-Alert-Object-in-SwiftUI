@@ -41,10 +41,10 @@ extension TodoItem.Priority: RawRepresentable {
 
     init?(rawValue: RawValue) {
         switch rawValue {
-        case (name: "Urgent", UIColor.red): self = .urgent
-        case (name: "High", UIColor.orange): self = .high
-        case (name: "Normal", UIColor.blue): self = .normal
-        case (name: "Low", UIColor.gray): self = .low
+        case (name: "Urgent", color: UIColor.red): self = .urgent
+        case (name: "High", color: UIColor.orange): self = .high
+        case (name: "Normal", color: UIColor.blue): self = .normal
+        case (name: "Low", color: UIColor.gray): self = .low
         default: return nil
         }
     }
