@@ -5,7 +5,7 @@
 //  Created by Can Balkaya on 3/8/21.
 //
 
-import SwiftUI
+import Foundation
 
 struct Action: Identifiable {
     

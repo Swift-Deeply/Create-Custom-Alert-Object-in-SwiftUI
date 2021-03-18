@@ -8,6 +8,8 @@
 import UIKit
 
 extension UITextField {
+    
+    // MARK: - Methods
     func datePicker<T>(target: T, date: Date, doneAction: Selector, cancelAction: Selector, datePickerMode: UIDatePicker.Mode = .date) {
         let screenWidth = UIScreen.main.bounds.width
         
