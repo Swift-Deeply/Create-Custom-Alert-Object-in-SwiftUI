@@ -11,8 +11,8 @@ import Combine
 class TextFieldAlertViewController: UIViewController {
 
     // MARK: - UI Elements
-    lazy var pickerView = UIPickerView()
     lazy var alertController = UIAlertController(title: action.alertTitle, message: action.alertDescription, preferredStyle: .alert)
+    lazy var pickerView = UIPickerView()
     
     // MARK: - Properties
     private let action: Action
