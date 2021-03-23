@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  UncompletedTasksView.swift
 //  Crate Custom Alert Object in SwiftUI
 //
 //  Created by Can Balkaya on 3/7/21.
@@ -49,8 +49,8 @@ struct UncompletedTasksView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct UncompletedTasksView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        UncompletedTasksView()
     }
 }
