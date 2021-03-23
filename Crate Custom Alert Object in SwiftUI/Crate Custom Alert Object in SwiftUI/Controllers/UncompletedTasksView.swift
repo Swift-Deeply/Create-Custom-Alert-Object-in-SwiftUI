@@ -11,9 +11,9 @@ struct UncompletedTasksView: View {
     
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared
-    @State var completedTasksViewIsAppear = false
+    @State private var completedTasksViewIsAppear = false
     
-    // MARK: - UI Elements
+    // MARK: - View
     var body: some View {
         NavigationView {
             List {

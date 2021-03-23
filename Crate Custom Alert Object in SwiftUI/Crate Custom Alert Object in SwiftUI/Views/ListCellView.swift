@@ -14,7 +14,7 @@ struct ListCellView: View {
     let dataStore = DataStore.shared
     @Binding var alertShowing: Bool
     
-    // MARK: - UI Elements
+    // MARK: - View
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {

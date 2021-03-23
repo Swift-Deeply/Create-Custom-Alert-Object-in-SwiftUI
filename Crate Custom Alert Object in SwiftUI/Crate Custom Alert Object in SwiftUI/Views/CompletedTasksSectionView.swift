@@ -12,7 +12,7 @@ struct CompletedTasksSectionView: View {
     // MARK: - Properties
     let count: Int
     
-    // MARK: - UI Elements
+    // MARK: - View
     var body: some View {
         Section {
             HStack {

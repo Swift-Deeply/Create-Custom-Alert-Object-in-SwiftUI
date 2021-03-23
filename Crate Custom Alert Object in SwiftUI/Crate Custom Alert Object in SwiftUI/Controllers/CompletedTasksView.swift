@@ -13,7 +13,7 @@ struct CompletedTasksView: View {
     @ObservedObject var dataStore = DataStore.shared
     @Environment(\.presentationMode) var presentationMode
     
-    // MARK: - UI Elements
+    // MARK: - View
     var body: some View {
         NavigationView {
             List {
