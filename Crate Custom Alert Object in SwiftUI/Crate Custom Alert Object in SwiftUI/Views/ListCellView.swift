@@ -11,7 +11,6 @@ struct ListCellView: View {
     
     // MARK: - Properties
     let dataStore = DataStore.shared
-    
     let todoItem: TodoItem
     
     // MARK: - View
