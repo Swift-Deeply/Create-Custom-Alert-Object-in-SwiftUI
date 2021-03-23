@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct UncompletedTasksView: View {
     
     // MARK: - Properties
     @ObservedObject var dataStore = DataStore.shared

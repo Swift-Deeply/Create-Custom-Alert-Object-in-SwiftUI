@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Crate_Custom_Alert_Object_in_SwiftUIApp: App {
+    
+    // MARK: - Scene
     var body: some Scene {
         WindowGroup {
-            MainView()
+            UncompletedTasksView()
         }
     }
 }
