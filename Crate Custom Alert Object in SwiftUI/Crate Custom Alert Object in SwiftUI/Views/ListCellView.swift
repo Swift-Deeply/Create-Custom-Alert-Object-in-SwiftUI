@@ -10,8 +10,9 @@ import SwiftUI
 struct ListCellView: View {
     
     // MARK: - Properties
-    let todoItem: TodoItem
     let dataStore = DataStore.shared
+    
+    let todoItem: TodoItem
     @Binding var alertShowing: Bool
     
     // MARK: - View
