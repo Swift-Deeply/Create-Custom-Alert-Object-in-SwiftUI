@@ -18,7 +18,7 @@ struct CompletedTasksView: View {
         NavigationView {
             List {
                 ForEach(dataStore.completedTodoItems) { todoItem in
-                    ListCellView(todoItem: todoItem, alertShowing: $dataStore.alertShowing)
+                    ListCellView(todoItem: todoItem)
                 }
             }
             .listStyle(InsetGroupedListStyle())

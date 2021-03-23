@@ -13,7 +13,6 @@ struct ListCellView: View {
     let dataStore = DataStore.shared
     
     let todoItem: TodoItem
-    @Binding var alertShowing: Bool
     
     // MARK: - View
     var body: some View {
@@ -52,7 +51,7 @@ struct ListCellView: View {
 
 struct ListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ListCellView(todoItem: TodoItem.example[0], alertShowing: .constant(false))
+        ListCellView(todoItem: TodoItem.example[0])
             .previewLayout(PreviewLayout.sizeThatFits)
     }
 }

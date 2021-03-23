@@ -26,7 +26,7 @@ struct UncompletedTasksView: View {
                 
                 Section {
                     ForEach(dataStore.incompleteTodoItems) { todoItem in
-                        ListCellView(todoItem: todoItem, alertShowing: $dataStore.alertShowing)
+                        ListCellView(todoItem: todoItem)
                     }
                 }
             }
